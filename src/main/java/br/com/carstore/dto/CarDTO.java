@@ -1,8 +1,10 @@
-package br.com.carstore.model;
+package br.com.carstore.dto;
 
-public class Car {
+import jakarta.validation.constraints.Size;
 
+public class CarDTO {
 
+    @Size(min = 1, max = 5, message = "erro de dados")
     private String name;
     private String color;
 
@@ -21,4 +23,5 @@ public class Car {
     public void setColor(String color) {
         this.color = color;
     }
+
 }
