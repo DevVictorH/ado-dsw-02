@@ -4,6 +4,8 @@ import jakarta.validation.constraints.Size;
 
 public class CarDTO {
 
+    private String id;
+
     @Size(min = 1, max = 5, message = "erro de dados")
     private String name;
     private String color;
@@ -24,4 +26,11 @@ public class CarDTO {
         this.color = color;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

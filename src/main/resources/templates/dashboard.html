@@ -25,7 +25,16 @@
         <tr th:each="car : ${cars}">
             <td th:text="${car.name}"></td>
             <td th:text="${car.color}"></td>
-            <td><!-- Ações futuras --></td>
+            <td>
+                <form action="/delete-car" method="post">
+                <input type="hidden" id="id" name="id" value="${car.id}">
+                    <button class="btn btn-primary">
+                        <i class="fa fa-user"></i> Delete
+                    </button>
+                <span> | </span>
+                <a href="index.html?id=${car.id}&name=${car.name}">Update</a>
+            </form>
+            </td>
         </tr>
         </tbody>
     </table>

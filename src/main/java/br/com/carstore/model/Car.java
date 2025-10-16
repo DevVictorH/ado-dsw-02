@@ -2,7 +2,6 @@ package br.com.carstore.model;
 
 public class Car {
 
-
     private String name;
     private String color;
 

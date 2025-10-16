@@ -28,7 +28,7 @@ public class HomeController {
     @PostMapping("/cars")
     public String createCar(CarDTO carDTO, BindingResult result) {
        carService.save(carDTO);
-       return "dashboard";
+       return "redirect:/cars";
     }
 
     @GetMapping("/cars")
