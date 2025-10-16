@@ -2,22 +2,37 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Create car</title>
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
 </head>
 <body>
 
-    <h2>Create car</h2>
-    <form action="/cars" method="post">
-        <label>Nome</label>
-        <br>
-        <input type="text" name="name">
-        <br><br>
-        <label>Cor</label>
-        <br>
-        <input type="text" name="color">
-        <br><br>
-        <button type="submit">Register</button>
+<div th:replace="~{fragments :: navbar}"></div>
+
+<div class="container">
+
+    <form action="#" th:action="@{/cars}" th:object="${carDTO}" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome:</label>
+            <input type="text" id="name" th:field="*{name}" class="form-control">
+            <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="color" class="form-label">Cor:</label>
+            <input type="text" id="color" th:field="*{color}" class="form-control">
+            <span class="error" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></span>
+        </div>
+        <div>
+            <button class="btn btn-primary">
+                <i class="fa fa-user"></i> Salvar
+            </button>
+        </div>
     </form>
 
+</div>
+
+<script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
